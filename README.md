@@ -1,1 +1,1 @@
-# pizza-shop
+# Сервис пиццы на PHP и Symfony
