@@ -59,9 +59,10 @@
 }
 
 .avatar{
-    filter: invert(100%);
     pointer-events: none;
     width: 45px;
+    height: 45px;
+    border-radius: 100px;
 }
 
 
