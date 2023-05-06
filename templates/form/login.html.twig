@@ -4,18 +4,18 @@
     <link rel="stylesheet" type="text/css" href="css/style-form.css" />
 </head>
 <body class="body">
-    <form class="form" method="POST">
+    <form class="form" action="/login_user" method="POST">
         <div class="form__head">
             <p class="form__name">Login</p>
             <a class="head__button" href="/registration">registration</a>
         </div>   
         <div class="field">
             <img class="field__icon" src="img/field-icon-2.png">
-            <input class="field__input" placeholder="Email">
+            <input class="field__input" placeholder="Email" required name="email">
         </div>
         <div class="field">
             <img class="field__icon" src="img/field-icon-2.png">
-            <input class="field__input" placeholder="Password">
+            <input class="field__input" placeholder="Password" required name="password">
         </div>
         <input type="submit" class="form__submit" value="Submit">
     </form>
