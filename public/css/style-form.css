@@ -1,0 +1,139 @@
+*{
+    overflow: hidden;
+}
+
+.body{ 
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #1a1f25;
+    width: 100vw;
+    height: 100vh;
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 220px;
+    padding: 20px 10px;
+}
+
+.form__head{
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    justify-content:  space-between;
+    align-items: flex-end;
+    margin: 5px;
+}
+
+.head__button{
+    display: block;
+    height: auto;
+    font: normal 400 12px "Oxygen", sans-serif;
+    background-color: rgba(0, 0, 0, 0);
+    border:2px solid #22272d;
+    border-radius: 2px;
+    padding: 2px;
+    cursor: pointer;
+    direction: none;
+    text-decoration: none;
+    color: #8f8f8f;
+}
+
+.head__button:hover {
+	background-color:  rgba(50, 50, 50, .5);
+    transition: 200ms linear;
+}
+
+.head__button:active {
+	background-color:  rgba(50, 50, 50, .1);
+    transition: 50ms linear;
+}
+
+
+.form__name{
+    font: normal 400 18px "Oxygen", sans-serif;
+    color: #ffffff;
+    margin: 0px;
+}
+
+.field {
+    width: 90%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 5px;
+}
+
+.field__icon {
+    height: 19px;
+    border:2px solid #22272d;
+    border-right: 0px;
+    border-radius: 3px 0px 0px 3px;
+    pointer-events: none;
+}
+
+.field__input {
+    width: 95%;
+    height: 17px;
+    background-color: rgba(0, 0, 0, 0);
+    color: #ffffff;
+    border:2px solid #22272d;
+    border-radius: 0px 3px 3px 0px;
+    outline: none;
+}
+
+.custom-file-upload{
+    width: 95%;
+    height: 17px;
+    background-color: rgba(0, 0, 0, 0);
+    text-align: center;
+    color: #757575;
+    font: normal 400 12px "Oxygen", sans-serif;
+    border-radius: 3px 3px 3px 3px;
+    border: 2px solid #22272d;
+    cursor: pointer;
+}
+
+.custom-file-upload:hover {
+	background-color: rgba(255, 255, 255, .1);
+    transition: 200ms linear;
+}
+
+.custom-file-upload:active {
+    background-color: rgba(255, 255, 255, .2);
+    transition: 50ms linear;
+}
+
+.form__input-file {
+    display: none;
+}
+
+.field__icon-file {
+    height: 17px;
+    border:2px solid #22272d;
+    border-radius: 3px 3px 3px 3px;
+}
+
+.form__submit{
+    width: 90%;
+    margin: 5px;
+    background-color: #e6b333;
+    color: white;
+    border-radius: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    cursor: pointer;
+}
+
+.form__submit:hover {
+	background-color: #E59E1F;
+    transition: 200ms linear;
+}
+
+.form__submit:active {
+	background-color: #e6b333;
+    transition: 50ms linear;
+}
+

@@ -1,0 +1,87 @@
+*{
+    padding: 0px;
+    margin: 0px;
+}
+
+.main{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    flex: 1 1 auto;
+}
+
+.button-text{
+    padding: 12px 31px 12px 31px;
+    background: #DD783F;
+    border-radius: 3px;
+    border: none;
+    font: normal 400 13px 'Oxygen';
+    line-height: 20px;
+    color: #FFFFFF;
+}
+
+.main__title-text{
+    text-align: center;
+    padding-top: 60px;
+    margin-bottom: 40px;
+    text-decoration: underline;
+    text-decoration-color:#DEDEDE;
+    text-underline-offset: 16px;
+    font-size: 20px;
+    line-height: 27px;
+    color: #2E2E2E;
+}
+
+.title__heading{
+    font: normal 400 50px 'Lora';
+    padding-top: 130px;
+    line-height: 51px;
+    text-align: center;
+    letter-spacing: 2px;
+    color: #FFFFFF;
+}
+
+.title__text{
+    font: normal 400 17px 'Oxygen';
+    line-height: 20px;
+    text-align: center;
+    color: #FFFFFF;
+    opacity: 63%;
+    margin-top: 30px;
+}
+
+.header_backround{
+    background-image: url("../img/head2.jpeg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: rgba(0, 0, 0, .8);
+    margin: 0px;
+}
+
+.main_backround-color{
+    background-color: #F7F7F7;
+
+}
+
+.card__top-info{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding-bottom: 15px;
+}
+
+.pizza-section{
+    display: flex;
+    flex-flow: wrap;
+    flex-direction: row;
+    justify-content: center;
+    background: #F7F7F7;
+    width: 80%;
+    margin-top: 25px;
+    margin-bottom: 100px;
+    gap: 24px;
+}
+
+
+
+

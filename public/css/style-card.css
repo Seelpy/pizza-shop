@@ -1,0 +1,72 @@
+.card{
+    display: flex;
+    flex-direction: column;
+    width: 296px;
+    background: #FFFFFF;
+    border-radius: 2px; 
+}
+
+.card__name{
+    display: inline;
+    font: normal 400 11px/35px 'Oxygen';
+    color: #999999;
+    vertical-align: 18px;
+}
+
+.card__image{
+    background-color: #999999;
+    width: 296px;
+    height: 150px;
+    border-radius: 3px;
+    display: flex;
+}
+
+.card__link{
+    padding: 13px 13px 13px 13px;
+    font: normal 400 16px 'Lora';
+    line-height: 21px;
+    color: #101315;
+    text-decoration: none;
+}
+
+.card__info{
+    padding: 0 13px;
+    font: normal 400 13px 'Oxygen';
+    line-height: 19px;
+    color: #7A7A7A;
+}
+
+.card__price-info{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font: normal 400 13px 'Oxygen';
+    height: 45px;
+    padding: 0px 15px;
+    background: #FCFCFC;
+    border-top: #EFEFEF 1px solid;
+}
+
+.card__buy{
+    font: normal 400 13px 'Oxygen';
+    background-color: #f3f3f3;
+    border: 2px;
+    border-color: rgba(0, 0, 0, 0);
+    border-radius: 2px;
+    height: 10%;
+    cursor: pointer;
+    
+}
+
+.card__buy:hover {
+	background-color: #f3f3f3;
+    background: rgba(0,0,0,.1);
+    transition: 200ms linear;
+    
+}
+
+.card__buy:active {
+	background-color: #f3f3f3;
+    transition: 50ms linear;
+}
