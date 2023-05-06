@@ -2,8 +2,12 @@
     <a href="/">
         <img class="basket-icon" src="./img/basket.png">
     </a>
-    <p class="email">{{ email }}</p>
+    <p class="email">{{ user.getEmail() }}</p>
     <a href="/">
-        <img class="avatar" src="./img/avatar.png">
+        {% if user.getAvatarPath() %}
+            <img class="avatar" src="./uploads/avatars/{{  user.getAvatarPath() }}"  >
+        {% else %}
+            <img class="avatar" src="./img/person.png" {{ user.getAvatarPath() }} >
+        {% endif %}
     </a>
 </div>
