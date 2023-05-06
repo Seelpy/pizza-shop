@@ -1,3 +1,36 @@
-#index:
-#    path: /
-#    controller: App\Controller\DefaultController::index
+login:
+    path: /login
+    methods: GET
+    controller: App\Controller\UserController::showLoginForm
+
+registration:
+    path: /registration
+    methods: GET
+    controller: App\Controller\UserController::showRegistrationForm
+
+add_user:
+    path: /register_user
+    methods: POST
+    controller: App\Controller\UserController::registerUser
+
+login_user:
+    path: /login_user
+    methods: POST
+    controller: App\Controller\UserController::loginUser
+
+show_home:
+    path: /home
+    methods: GET
+    controller: App\Controller\StorefrontController::showHome
+
+show_home_index: 
+    path: /index
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: show_home
+
+show_home_empty: 
+    path: /
+    controller: Symfony\Bundle\FrameworkBundle\Controller\RedirectController::redirectAction
+    defaults:
+        route: show_home
