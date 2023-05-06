@@ -1,0 +1,24 @@
+{% extends "base.html.twig" %}
+
+{% block stylesheets %}
+            {{ parent() }}
+            <link rel="stylesheet" href="./css/style-card.css"/>
+{% endblock %}
+
+{% block header %}
+    {{ parent() }}
+    <div class="title header__title">
+        <h1 class="heading title__heading heading_size_big">The best pizza at the world</h1>
+        <p class="text title__text">We travel the world om search of stories. Come along for the ride</p>
+    </div>
+{% endblock %}
+
+{% block content %}
+    {{ parent() }}
+    <main class="main main_backround-color">
+      {% for section in sections %}
+        {% include './pizza/section.html.twig' with section %}
+      {% endfor %}
+    </main>
+{% endblock %}
+

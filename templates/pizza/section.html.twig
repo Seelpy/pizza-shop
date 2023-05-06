@@ -1,0 +1,6 @@
+<h2 class="heading main__title-text heading_size_medium">{{ section.section_name }}</h2>
+<section class="pizza-section">
+    {% for pizza in section.pizzas %}
+        {% include 'pizza/card.html.twig'%}
+    {% endfor %}
+</section>
