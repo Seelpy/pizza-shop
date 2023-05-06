@@ -19,9 +19,9 @@ class UserTable
     {
         $query = <<< SQL
             SELECT
-                email, name, lastname, address, avatar_path
+                email, password, name, lastname, address, avatar_path
             FROM user
-            WHERE email = $email
+            WHERE email = '$email'
         SQL;
 
         $statement = $this->connection->query($query);
