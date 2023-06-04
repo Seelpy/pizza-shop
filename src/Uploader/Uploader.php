@@ -12,7 +12,7 @@ class Uploader
 
     public function moveAvatarToUploads(array $fileInfo): string
     {
-        if (!$this->hasNormalFileType($fileInfo))
+        if (!$this->assertNormalFileType($fileInfo))
         {
             $type = $fileInfo["type"];
             throw new \RuntimeException("Invalid image type: $type");
@@ -22,7 +22,7 @@ class Uploader
 
     public function movePizzasImageToUploads(array $fileInfo): string
     {
-        if (!$this->hasNormalFileType($fileInfo))
+        if (!$this->assertNormalFileType($fileInfo))
         {
             $type = $fileInfo["type"];
             throw new \RuntimeException("Invalid image type: $type");
@@ -39,7 +39,7 @@ class Uploader
         return $newName;
     }
 
-    private function hasNormalFileType(array $fileInfo): bool
+    private function assertNormalFileType(array $fileInfo): bool
     {
         $type = $fileInfo['type'];
         return isset(self::ALLOWED_IMAGE_TYPES[$type]);
