@@ -8,9 +8,7 @@ use App\Database\ConnectionProvider;
 use App\Database\UserTable;
 use App\Model\User;
 use App\Uploader\Uploader;
-use App\View\PhpTemplateEngine;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\ErrorHandler\Error\FatalError;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -54,6 +52,7 @@ class UserController extends AbstractController
         }
 
         $user = new User(
+            id: null,
             email: $request->get("email"),
             password: $request->get("password"),
             name: $request->get("name"),
