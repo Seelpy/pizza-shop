@@ -1,0 +1,137 @@
+[33mcommit 023845f42a011bba6ae99c44470b995a43ba9470[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m)[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:51:57 2023 +0300
+
+    Настройки
+
+[33mcommit 5a7100d26148cebb99951edad4d019c19a0d332f[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:50:31 2023 +0300
+
+    Добавил отображение email и аватарки
+
+[33mcommit 9c1d84694b708796edfedb2288fc552d29997fd4[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:49:42 2023 +0300
+
+    Добавил action  добавил required
+
+[33mcommit 1b6fabfea98353fa871bd99697686835960e806b[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:48:52 2023 +0300
+
+    Подправил сохранение юзера
+
+[33mcommit 9cdfb10257bd10a0ccc07cc8569a5e531898493f[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:47:55 2023 +0300
+
+    Добавил сессии
+
+[33mcommit b960fb856e1c4b9653f32fc3a4c6f50e5b3082a9[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:47:15 2023 +0300
+
+    Вернул обратно
+
+[33mcommit 7e14dabff102a31a293f09091ebbb1c8c297abfb[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 20:46:11 2023 +0300
+
+    Подправил отображение
+
+[33mcommit 2cf9c86612a44399850772377fa8ca28e111d59c[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:08:25 2023 +0300
+
+    Добавил StorefrontController
+
+[33mcommit d92048caf6cee7f855b1eb8a02b324d38899717f[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:07:54 2023 +0300
+
+    Добавил UserController
+
+[33mcommit 7f2065a1224a01680e3ef4203998cb069d3d1c3b[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:07:21 2023 +0300
+
+    Добавил класс для таблицы user
+
+[33mcommit 2cfc4e58d710ad2e6149119128f79785f19abf34[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:07:09 2023 +0300
+
+    Добавил класс для таблицы pizza
+
+[33mcommit 18f9657425e62333b07d850ef5e1c8fae4b573a5[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:06:35 2023 +0300
+
+    Добавил провайдер для бд
+
+[33mcommit 7c4528719c424294d48334e4c8b5e27e8e20ceb8[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:04:18 2023 +0300
+
+    Добавил шаблоны
+
+[33mcommit 95523c957df32c3866239ee210c490c7cd4d8a1a[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:03:35 2023 +0300
+
+    Добавил загрузчик картинок
+
+[33mcommit 55a6c166d5e977c37738a204543f0d4b48f02e3a[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:00:25 2023 +0300
+
+    Добавил модель для pizza
+
+[33mcommit 953934a556500cf6a3da71b3a20c7b18bb239d65[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 19:00:10 2023 +0300
+
+    Добавил модель для user
+
+[33mcommit 71e0cdbe436d2cf5cd0cc6e61b7ec5b88ed93620[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 18:57:52 2023 +0300
+
+    Добавил картинки
+
+[33mcommit c479623465fd0b9fdce1d88774880e21f2d2c97e[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 18:57:35 2023 +0300
+
+    Добавил стили
+
+[33mcommit d0d1ef8ef7e9e0df1c404ce8b150fb66613bface[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 18:56:16 2023 +0300
+
+    Добавил slq с тестовыми данными
+
+[33mcommit 95d8928197c1422d0cc360dbae0fad03835365dd[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 18:55:01 2023 +0300
+
+    Добавил инициализациб бд
+
+[33mcommit beed97abec21394bcd49a02e68cf157135ba56f8[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Sat May 6 13:48:25 2023 +0300
+
+    Добавил переадресацию при /  и  /index
+
+[33mcommit e0c164fccff0726c742c76365ea39223574163f8[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m)[m
+Author: QwErTy-yTrEwQ03 <maks-veselov-2003@mail.ru>
+Date:   Wed May 3 20:41:59 2023 +0300
+
+    Create Symfony project
+
+[33mcommit 6cf3657ba725ef4dbccf22e241d02397e7f22c01[m
+Author: Seelpy <71544630+Seelpy@users.noreply.github.com>
+Date:   Wed May 3 20:24:57 2023 +0300
+
+    Initial commit
