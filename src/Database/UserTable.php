@@ -54,6 +54,7 @@ class UserTable
     private function createUserFromRow(array $row): User
     {
         return new User(
+            id: $row["id"],
             email: $row["email"],
             password: $row["password"],
             name: $row["name"],
