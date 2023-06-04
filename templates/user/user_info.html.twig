@@ -5,9 +5,9 @@
     <p class="email">{{ user.getEmail() }}</p>
     <a href="/">
         {% if user.getAvatarPath() %}
-            <img class="avatar" src="./uploads/avatars/{{  user.getAvatarPath() }}"  >
+            <img class="avatar" src="./uploads/avatars/{{  user.getAvatarPath() }}">
         {% else %}
-            <img class="avatar" src="./img/person.png" {{ user.getAvatarPath() }} >
+            <img class="avatar" src="./img/person.png">
         {% endif %}
     </a>
 </div>
