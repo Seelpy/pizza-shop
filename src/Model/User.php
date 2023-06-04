@@ -6,21 +6,19 @@ namespace App\Model;
 
 class User
 {
-    private string $email;
-    private string $password;
-    private string $name;
-    private ?string $lastname;
-    private ?string $address;
-    private ?string $avatarPath;
+    public function __construct(
+        private ?int $id,
+        private string $email,
+        private string $password,
+        private string $name,
+        private ?string $lastname,
+        private ?string $address,
+        private ?string $avatarPath)
+    {}
 
-    public function __construct(string $email, string $password, string $name, ?string $lastname, ?string $address, ?string $avatarPath)
+    public function getId(): int
     {
-        $this->email = $email;
-        $this->password = $password;
-        $this->name = $name;
-        $this->lastname = $lastname;
-        $this->address = $address;
-        $this->avatarPath = $avatarPath;
+        return $this->id;
     }
 
     public function getEmail(): string
