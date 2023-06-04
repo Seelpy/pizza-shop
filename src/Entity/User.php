@@ -7,6 +7,7 @@ namespace App\Entity;
 class User
 {
     public function __construct(
+        private ?int $id,
         private string $email,
         private string $password,
         private string $name,
@@ -14,6 +15,11 @@ class User
         private ?string $address,
         private ?string $avatarPath)
     {}
+
+    public function getId(): int
+    {
+        return $this->id;
+    }
 
     public function getEmail(): string
     {
