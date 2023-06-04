@@ -4,29 +4,25 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-
-use App\Database\ConnectionProvider;
-use App\Database\PizzaTable;
 use App\Database\UserTable;
-use App\View\PhpTemplateEngine;
+use App\Repository\PizzaRepository;
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
 class StorefrontController extends AbstractController
 {
-    private const HTTP_STATUS_303_SEE_OTHER = 303;
-    private PizzaTable $pizzaTable;
     private UserTable $userTable;
+    private PizzaRepository $pizzaRepository;
+    private UserRepository $userRepository;
     private Environment $twig;
 
-    public function __construct()
+    public function __construct(PizzaRepository $pizzaRepository, UserRepository $userRepository)
     {
-        $connection = ConnectionProvider::connectDatabase();
-        $this->pizzaTable = new PizzaTable($connection);
-        $this->userTable = new UserTable($connection);
+        $this->pizzaRepository = $pizzaRepository;
+        $this->userRepository = $userRepository;
         $this->twig = new Environment(new FilesystemLoader("../templates"));
     }
 
@@ -38,7 +34,7 @@ class StorefrontController extends AbstractController
             return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
         }
         $user = $this->userTable->findUser($_SESSION['email']);
-        $pizzas = $this->pizzaTable->getAllPizzas();
+        $pizzas = $this->pizzaRepository->listAll();
         $contents = $this->twig->render("./pages/home.html.twig", [
 
             "sections" => [
