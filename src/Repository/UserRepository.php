@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Repository;
 
-use App\Entity\Pizza;
+use App\Entity\User;
 use Doctrine\ORM\EntityManagerInterface;
 use Doctrine\ORM\EntityRepository;
 
-class PizzaRepository
+class UserRepository
 {
     private EntityManagerInterface $entityManeger;
     private EntityRepository $repository;
@@ -16,24 +16,29 @@ class PizzaRepository
     public function __construct(EntityManagerInterface $entityManager)
     {
         $this->entityManeger = $entityManager;
-        $this->repository = $entityManager->getRepository(Pizza::class);
+        $this->repository = $entityManager->getRepository(User::class);
     }
 
-    public function findById(int $id): ?Pizza 
+    public function findById(int $id): ?User 
     {
-        return $this->repository->findOneBy(["pizza_id" => (string) $id]);
+        return $this->repository->findOneBy(["id" => $id]);
     }
 
-    public function store(Pizza $pizza): int
+    public function findByEmail(string $email): ?User 
     {
-        $this->entityManeger->persist($pizza);
+        return $this->repository->findOneBy(["email" =>  $email]);
+    }
+
+    public function store(User $user): int
+    {
+        $this->entityManeger->persist($user);
         $this->entityManeger->flush();
-        return $pizza->getId();
+        return $user->getId();
     }
 
-    public function delete(Pizza $pizza): void
+    public function delete(User $user): void
     {
-        $this->entityManeger->remove($pizza);
+        $this->entityManeger->remove($user);
         $this->entityManeger->flush();
     }
 
@@ -41,4 +46,5 @@ class PizzaRepository
     {
         return $this->repository->findAll();
     }
+
 }
