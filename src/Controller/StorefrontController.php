@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Database\UserTable;
 use App\Repository\PizzaRepository;
 use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -14,7 +13,6 @@ use Twig\Loader\FilesystemLoader;
 
 class StorefrontController extends AbstractController
 {
-    private UserTable $userTable;
     private PizzaRepository $pizzaRepository;
     private UserRepository $userRepository;
     private Environment $twig;
@@ -33,7 +31,7 @@ class StorefrontController extends AbstractController
         {
             return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
         }
-        $user = $this->userTable->findUser($_SESSION['email']);
+        $user = $this->userRepository->findByEmail($_SESSION['email']);
         $pizzas = $this->pizzaRepository->listAll();
         $contents = $this->twig->render("./pages/home.html.twig", [
 
