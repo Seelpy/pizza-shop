@@ -10,6 +10,7 @@ use App\Entity\User;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Security\Core\Security;
 use Twig\Environment;
 use Twig\Loader\FilesystemLoader;
 
@@ -40,7 +41,6 @@ class UserController extends AbstractController
 
     public function registerUser(Request $request): Response
     {
-        session_start();
 
         $imageData = $_FILES;
         $avatar_path = null;
@@ -56,31 +56,16 @@ class UserController extends AbstractController
             lastname: $request->get("lastname"),
             address: $request->get("address"),
             avatarPath: $avatar_path,
+            role: 0,
         );
 
         if (!$this->isCorrectRegistrationData($user)) {
             return $this->redirectToRoute("registration", [], Response::HTTP_SEE_OTHER);
         }
 
-        $_SESSION['email'] = $user->getEmail();
         $this->userService->register($user);
 
-        return $this->redirectToRoute("show_home", [], Response::HTTP_SEE_OTHER);
-    }
-
-    public function loginUser(Request $request): Response
-    {
-        session_start();
-
-        $userEmail = $request->get("email");
-        $userPassword = $request->get("password");
-
-        if (!$this->userService->isCorrectLoginData($userEmail, $userPassword)) {
-            return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
-        }
-
-        $_SESSION["email"] = $userEmail;
-        return $this->redirectToRoute("show_home", [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
     }
 
     private function isCorrectRegistrationData(User $user): bool
