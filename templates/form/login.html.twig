@@ -4,20 +4,21 @@
     <link rel="stylesheet" type="text/css" href="css/style-form.css" />
 </head>
 <body class="body">
-    <form class="form" action="/login_user" method="POST">
+    <form class="form" method="POST">
         <div class="form__head">
             <p class="form__name">Login</p>
             <a class="head__button" href="/registration">registration</a>
         </div>   
         <div class="field">
             <img class="field__icon" src="img/field-icon-2.png">
-            <input class="field__input" placeholder="Email" required name="email">
+            <input class="field__input" id="inputEmail" placeholder="Email" required name="email">
         </div>
         <div class="field">
             <img class="field__icon" src="img/field-icon-2.png">
-            <input class="field__input" placeholder="Password" required name="password">
+            <input class="field__input" id="inputPassword" placeholder="Password" required name="password">
         </div>
-        <input type="submit" class="form__submit" value="Submit">
+          <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}">
+        <button class="btn btn-primary" type="submit">Sign in</button>
     </form>
 </body>
 </html>
