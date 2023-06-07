@@ -16,8 +16,7 @@ class ImageService implements ImageServiceInterface
     public function moveImageToUploads(array $fileInfo): string
     {
         $fileName = $fileInfo["name"];
-        $srcPath = $fileInfo["tmp_name"];
-        $fileType = mime_content_type($srcPath);
+        $fileType = $fileInfo["type"];
 
         $imageExt = self::ALLOWED_MIME_TYPES_MAP[$fileType] ?? null;
 
@@ -42,7 +41,7 @@ class ImageService implements ImageServiceInterface
 
     public function getUploadUrlPath(string $fileName): string
     {
-        return "/uploads/avatars/$fileName";
+        return "/uploads/$fileName";
     }
 
     public function moveFileToUploads(array $fileInfo, string $destFileName): string
