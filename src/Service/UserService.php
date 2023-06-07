@@ -12,10 +12,12 @@ use App\Service\UserServiceInterface;
 class UserService implements UserServiceInterface
 {
     private UserRepository $userRepository;
+    private PasswordHasher $passwordHasher;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserRepository $userRepository, PasswordHasher $passwordHasher)
     {
         $this->userRepository = $userRepository;
+        $this->passwordHasher = $passwordHasher;
     }
 
     public function register(User $user): void
@@ -25,6 +27,16 @@ class UserService implements UserServiceInterface
             throw new \InvalidArgumentException("Почта(" . $user->getEmail() . ") уже зарегестрирована");
         }
 
+         $user =  new User(
+            id: $user->getId(),
+            email: $user->getEmail(),
+            password: $this->passwordHasher->hash($user->getPassword()),
+            name: $user->getName(),
+            lastname: $user->getLastName(),
+            address: $user->getAddress(),
+            avatarPath: $user->getAvatarPath(),
+            role: 0,
+        );
         $this->userRepository->store($user);
     }
 
@@ -49,6 +61,7 @@ class UserService implements UserServiceInterface
             lastname: $user->getLastName(),
             address: $user->getAddress(),
             avatarPath: $user->getAvatarPath(),
+            role: 0,
         );
     }
 }
