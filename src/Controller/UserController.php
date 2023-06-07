@@ -4,9 +4,9 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Repository\UserRepository;
+use App\Service\UserServiceInterface;
+use App\Service\ImageServiceInterface;
 use App\Entity\User;
-use App\Uploader\Uploader;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -15,14 +15,14 @@ use Twig\Loader\FilesystemLoader;
 
 class UserController extends AbstractController
 {
-    private UserRepository $userRepository;
-    private Uploader $uploader;
+    private UserServiceInterface $userService;
+    private ImageServiceInterface $imageService;
     private Environment $twig;
 
-    public function __construct(UserRepository $userRepository)
+    public function __construct(UserServiceInterface $userService, ImageServiceInterface $imageService)
     {
-        $this->userRepository = $userRepository;
-        $this->uploader = new Uploader();
+        $this->userService = $userService;
+        $this->imageService = $imageService;
         $this->twig = new Environment(new FilesystemLoader("../templates"));
     }
 
@@ -45,9 +45,9 @@ class UserController extends AbstractController
         $imageData = $_FILES;
         $avatar_path = null;
         if (isset($imageData["avatar"]) & $imageData["avatar"]["name"] != "") {
-            $avatar_path = $this->uploader->moveAvatarToUploads($imageData["avatar"]);
+            $avatar_path = $this->imageService->moveImageToUploads($imageData["avatar"]);
         }
-
+        
         $user = new User(
             id: null,
             email: $request->get("email"),
@@ -62,12 +62,8 @@ class UserController extends AbstractController
             return $this->redirectToRoute("registration", [], Response::HTTP_SEE_OTHER);
         }
 
-        if (!$this->isNewUserEmail($user->getEmail())){
-            return $this->redirectToRoute("registration", [], Response::HTTP_SEE_OTHER);
-        }
-
         $_SESSION['email'] = $user->getEmail();
-        $this->userRepository->store($user);
+        $this->userService->register($user);
 
         return $this->redirectToRoute("show_home", [], Response::HTTP_SEE_OTHER);
     }
@@ -79,23 +75,12 @@ class UserController extends AbstractController
         $userEmail = $request->get("email");
         $userPassword = $request->get("password");
 
-        if (!$this->isCorrectLoginData($userEmail, $userPassword)) {
+        if (!$this->userService->isCorrectLoginData($userEmail, $userPassword)) {
             return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
         }
 
         $_SESSION["email"] = $userEmail;
         return $this->redirectToRoute("show_home", [], Response::HTTP_SEE_OTHER);
-    }
-
-    private function isCorrectLoginData(string $email, string $password): bool
-    {
-        $user = $this->userRepository->findByEmail($email);
-        return $user->getPassword() == $password;
-    }
-
-    private function isNewUserEmail(string $email): bool
-    {
-        return $this->userRepository->findByEmail($email) === null;
     }
 
     private function isCorrectRegistrationData(User $user): bool

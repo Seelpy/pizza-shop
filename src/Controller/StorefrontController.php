@@ -4,8 +4,8 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Repository\PizzaRepository;
-use App\Repository\UserRepository;
+use App\Service\PizzaServiceInterface;
+use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Twig\Environment;
@@ -13,14 +13,14 @@ use Twig\Loader\FilesystemLoader;
 
 class StorefrontController extends AbstractController
 {
-    private PizzaRepository $pizzaRepository;
-    private UserRepository $userRepository;
+    private PizzaServiceInterface $pizzaService;
+    private UserServiceInterface $userService;
     private Environment $twig;
 
-    public function __construct(PizzaRepository $pizzaRepository, UserRepository $userRepository)
+    public function __construct(PizzaServiceInterface $pizzaService, UserServiceInterface $userService)
     {
-        $this->pizzaRepository = $pizzaRepository;
-        $this->userRepository = $userRepository;
+        $this->pizzaService = $pizzaService;
+        $this->userService = $userService;
         $this->twig = new Environment(new FilesystemLoader("../templates"));
     }
 
@@ -31,8 +31,8 @@ class StorefrontController extends AbstractController
         {
             return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
         }
-        $user = $this->userRepository->findByEmail($_SESSION['email']);
-        $pizzas = $this->pizzaRepository->listAll();
+        $user = $this->userService->findUserByEmail($_SESSION['email']);
+        $pizzas = $this->pizzaService->listPizza();
         $contents = $this->twig->render("./pages/home.html.twig", [
 
             "sections" => [
