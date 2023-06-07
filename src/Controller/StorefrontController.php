@@ -5,6 +5,7 @@ declare(strict_types=1);
 namespace App\Controller;
 
 use App\Service\PizzaServiceInterface;
+use App\Service\UserService;
 use App\Service\UserServiceInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
@@ -26,12 +27,8 @@ class StorefrontController extends AbstractController
 
     public function showHome(): Response
     {
-        session_start();
-        if (!isset($_SESSION['email']))
-        {
-            return $this->redirectToRoute("login", [], Response::HTTP_SEE_OTHER);
-        }
-        $user = $this->userService->findUserByEmail($_SESSION['email']);
+        $securityUser = $this->getUser();
+        $user = $this->userService->findUserByEmail($securityUser->getUserIdentifier());
         $pizzas = $this->pizzaService->listPizza();
         $contents = $this->twig->render("./pages/home.html.twig", [
 
