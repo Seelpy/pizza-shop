@@ -16,7 +16,7 @@
         <field name="lastname" column="lastname" type="string" length="100" nullable="true" />
         <field name="address" column="address" type="string" length="300" nullable="true" />
         <field name="avatarPath" column="avatar_path" type="string" length="100" nullable="true" />
-
+        <field name="role" column="role" type="integer" nullable="false" />
     </entity>
 
 </doctrine-mapping>
