@@ -13,7 +13,8 @@ class UserData
         private string $name,
         private ?string $lastname,
         private ?string $address,
-        private ?string $avatarPath)
+        private ?string $avatarPath,
+        private int $role)
     {}
 
     public function getId(): int
@@ -49,5 +50,10 @@ class UserData
     public function getAvatarPath(): ?string
     {
         return $this->avatarPath;
+    }
+
+    public function getRole(): int
+    {
+        return $this->role;
     }
 }

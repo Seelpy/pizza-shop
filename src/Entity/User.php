@@ -13,10 +13,11 @@ class User
         private string $name,
         private ?string $lastname,
         private ?string $address,
-        private ?string $avatarPath)
+        private ?string $avatarPath,
+        private int $role,)
     {}
 
-    public function getId(): int
+    public function getId(): ?int
     {
         return $this->id;
     }
@@ -49,5 +50,10 @@ class User
     public function getAvatarPath(): ?string
     {
         return $this->avatarPath;
+    }
+
+    public function getRole(): int
+    {
+        return $this->role;
     }
 }
